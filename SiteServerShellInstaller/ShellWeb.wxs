@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <?include $(sys.CURRENTDIR)Variables.wxi ?>
+    <Fragment>
+        <DirectoryRef Id="SHELLWEBDIR">
+            <Component Id="cmpB3CB1FE1B2DE4553DF66C486FC24991D" Guid="{55D5D79A-2251-456E-A594-44422E35444E}">
+                <File Id="fil76D0B2B72B5E7384DE2C32DEAB38EAA2" KeyPath="yes" Source="$(var.WebSourceDir)\3rdpartylicenses.txt" />
+            </Component>
+            <Component Id="cmp18BCDCBE7DFEDEAC86EBAA695FE5CDC3" Guid="{B1AEA8EA-4B30-437D-A48C-31D250DE2A2B}">
+                <File Id="fil62DDF69CC427A28D37806B9D6E98E9DE" KeyPath="yes" Source="$(var.WebSourceDir)\favicon.ico" />
+            </Component>
+            <Component Id="cmpFD04EF1B7B7F359CAA6C17D0CCDC2229" Guid="{C3F2DA85-1F9C-4C36-BB87-DE466678DDA6}">
+                <File Id="filC36AABA34894ECCAD77E217072629A66" KeyPath="yes" Source="$(var.WebSourceDir)\glyphicons-halflings-regular.448c34a56d699c29117a.woff2" />
+            </Component>
+            <Component Id="cmpF05609F9583CCF7B41B74285A7DE7B7E" Guid="{0357E9F4-1556-4FF3-A730-E7B2A1764AE5}">
+                <File Id="fil19ADEA3E3A609BA6E22A275AE340AC4B" KeyPath="yes" Source="$(var.WebSourceDir)\glyphicons-halflings-regular.89889688147bd7575d63.svg" />
+            </Component>
+            <Component Id="cmp11E08C626656FD032B94F25771C06EC8" Guid="{D3166503-6A15-44F0-B0AE-7300862ED950}">
+                <File Id="filA064B8F366008984B4A6FA8D4237EA63" KeyPath="yes" Source="$(var.WebSourceDir)\glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" />
+            </Component>
+            <Component Id="cmp84672D39E0BA695F15A8F40BBF910A2D" Guid="{D3820122-9E61-4DD2-9843-C82612FC86FD}">
+                <File Id="fil43E048F17D7F357B8D6F644F498C0921" KeyPath="yes" Source="$(var.WebSourceDir)\glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" />
+            </Component>
+            <Component Id="cmp1585D8CAC4A82119888D31274C89AB7E" Guid="{D22476A5-8830-435A-9700-A8A7A9299E09}">
+                <File Id="filA5C4BEEF51E772A08A2585AD54478AF3" KeyPath="yes" Source="$(var.WebSourceDir)\glyphicons-halflings-regular.fa2772327f55d8198301.woff" />
+            </Component>
+            <Component Id="cmp2F4030999544AC75DE9EFDAD7E642BF9" Guid="{CD06234B-49AB-4103-8996-DB7081E95B29}">
+                <File Id="fil0DCCD4EE88820FEDC158C8D49032B714" KeyPath="yes" Source="$(var.WebSourceDir)\index.html" />
+            </Component>
+            <Component Id="cmp38A5B94FF4BF8060B8A3CC214A1882DE" Guid="{33BF06A4-CCDA-43F3-AFD9-13FB3ECCDB8F}">
+                <File Id="filA0FA0C526D4B7810175B0ED728DA3BDD" KeyPath="yes" Source="$(var.WebSourceDir)\inline.37df2069ceb771ab6e5f.bundle.js" />
+            </Component>
+            <Component Id="cmpD5AD5B8CFC245ED79B93C4FB8EBEB436" Guid="{1B4B4989-E5F0-41E6-A9A5-F1B6A29430E4}">
+                <File Id="filDA5656D2869A6C63660B61E84BC3A464" KeyPath="yes" Source="$(var.WebSourceDir)\main.4b2a0a945ef4e285a700.bundle.js" />
+            </Component>
+            <Component Id="cmp734BE5291228990BF570DE3355779720" Guid="{D201A968-6E46-498D-B7BC-3A4171D6BBF0}">
+                <File Id="filC9DBA405C05E4EDC4B55A28C0A060540" KeyPath="yes" Source="$(var.WebSourceDir)\polyfills.35726d60cdf25fecc5f1.bundle.js" />
+            </Component>
+            <Component Id="cmp6EBC8A7562506119CDA01465682A59A8" Guid="{5AD38585-F8A0-406A-BFD9-AE5A735D91D9}">
+                <File Id="fil147B32E8A08BF4D9327F889D307D682D" KeyPath="yes" Source="$(var.WebSourceDir)\styles.20775170c5af0a276b70.bundle.css" />
+            </Component>
+            <Component Id="cmpC7F90BF5F3E3211B2F051766689B7C44" Guid="{85115F98-252D-4DDE-8FFD-B82EA10C539F}">
+                <File Id="fil796DD0B7E50AC07764E704F556ADAB5D" KeyPath="yes" Source="$(var.WebSourceDir)\vendor.3f2501506266afd2fef7.bundle.js" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ShellWebPackage">
+            <ComponentRef Id="cmpB3CB1FE1B2DE4553DF66C486FC24991D" />
+            <ComponentRef Id="cmp18BCDCBE7DFEDEAC86EBAA695FE5CDC3" />
+            <ComponentRef Id="cmpFD04EF1B7B7F359CAA6C17D0CCDC2229" />
+            <ComponentRef Id="cmpF05609F9583CCF7B41B74285A7DE7B7E" />
+            <ComponentRef Id="cmp11E08C626656FD032B94F25771C06EC8" />
+            <ComponentRef Id="cmp84672D39E0BA695F15A8F40BBF910A2D" />
+            <ComponentRef Id="cmp1585D8CAC4A82119888D31274C89AB7E" />
+            <ComponentRef Id="cmp2F4030999544AC75DE9EFDAD7E642BF9" />
+            <ComponentRef Id="cmp38A5B94FF4BF8060B8A3CC214A1882DE" />
+            <ComponentRef Id="cmpD5AD5B8CFC245ED79B93C4FB8EBEB436" />
+            <ComponentRef Id="cmp734BE5291228990BF570DE3355779720" />
+            <ComponentRef Id="cmp6EBC8A7562506119CDA01465682A59A8" />
+            <ComponentRef Id="cmpC7F90BF5F3E3211B2F051766689B7C44" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

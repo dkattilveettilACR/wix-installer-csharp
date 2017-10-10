@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ShellRootDir="Shell" ?>
+  <?define Version="1.0.0.0" ?>
+  <?define ServiceSourceDir="AcrSiteServerShell\distr" ?>
+  <?define WebSourceDir="AcrSiteServerShell\webui" ?>
+</Include>

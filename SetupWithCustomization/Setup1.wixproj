@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>d3122905-b0b8-4e7b-9d43-be5b04f6913b</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>SetupWithCustomization</OutputName>
+    <OutputType>Package</OutputType>
+    <Name>Setup1</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="SampleCustomUI1.wxs" />
+    <Compile Include="UI_Texts.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Binary\Banner.bmp" />
+    <Content Include="Binary\Complete.ico" />
+    <Content Include="Binary\Custom.ico" />
+    <Content Include="Binary\Dialog.bmp" />
+    <Content Include="Binary\Exclam.ico" />
+    <Content Include="Binary\Info.ico" />
+    <Content Include="Binary\License.rtf" />
+    <Content Include="Binary\New.ico" />
+    <Content Include="Binary\Remove.ico" />
+    <Content Include="Binary\Repair.ico" />
+    <Content Include="Binary\Typical.ico" />
+    <Content Include="Binary\Up.ico" />
+    <Content Include="FoobarAppl10.exe" />
+    <Content Include="Helper.dll" />
+    <Content Include="Manual.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Binary" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

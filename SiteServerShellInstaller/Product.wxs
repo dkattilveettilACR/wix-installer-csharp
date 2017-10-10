@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include $(sys.CURRENTDIR)Variables.wxi ?>  
+	<Product Id="F0E579AB-6E28-4D0F-97CD-6E01026A59F8" Name="Site Server Shell" Language="1033" Version="1.0.0.0" Manufacturer="ACR" UpgradeCode="4a3d7b8f-4323-4fb0-9b8e-519b75268d67">
+    <Package Id='*' Keywords='Installer'
+      Description="ACR's Site Server Installer"
+      Comments='Site Server is a registered trademark of ACR.' Manufacturer='ACR'
+      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+  
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    
+    <WixVariable Id="WixUILicenseRtf" Value="Path\License.rtf" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder' Name='PFiles'>
+        <Directory Id='ACR' Name='ACR'>
+          <Directory Id='INSTALLDIR' Name='$(var.ShellRootDir)_$(var.Version)'>
+            <Component Id='ConfigFile' Guid='{141FBE33-F635-45A5-86BE-81FC92807FAE}'>
+            <File Id='ConfigFile' Name='Acr.SiteServer.Shell.exe.config' DiskId='1' Source='AcrSiteServerShell\config\Acr.SiteServer.Shell.exe.config' KeyPath='yes' />
+            </Component>
+            <Directory Id='WEBROOTDIR' Name='wwwroot'>
+              <Directory Id='SHELLWEBDIR' Name='$(var.ShellRootDir)_$(var.Version)'>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+    
+    <Feature Id='ShellService' Title='Site Server Shell' Description='The service package.'
+     Display='expand' Level='1'>
+      <ComponentGroupRef  Id='ShellServicePackage'></ComponentGroupRef>
+      <ComponentRef Id ='ConfigFile' ></ComponentRef>
+      <ComponentGroupRef  Id='ShellWebPackage'></ComponentGroupRef>
+    </Feature>
+    
+    <InstallExecuteSequence>
+      <Custom Action="InstallService" After='InstallFiles'>NOT Installed AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <!--<Custom Action="ShellServiceInstall" After='InstallFiles'>NOT Installed AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <Custom Action="ShellServiceStart" After="ShellServiceInstall">NOT Installed AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <Custom Action="ShellServiceStop" Before='ShellServiceInstall'>(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+      <Custom Action="ShellServiceUninstall" Before="RemoveFiles">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>-->
+    </InstallExecuteSequence>
+  </Product>
+</Wix>
