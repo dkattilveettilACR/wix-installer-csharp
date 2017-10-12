@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package>
   <Content>
-    <File path="\config\Acr.SiteServer.Shell.exe.config" hash="SHA1:+YqeXZ++hq6vQDIxE6eUFBp1pfk=" />
-    <File path="\distr\Acr.Delivery.Commons.dll" hash="SHA1:hV54Ci4gtXsLWmylzBdoBwkBsVU=" />
-    <File path="\distr\Acr.Delivery.Packaging.dll" hash="SHA1:84r4/TwpwrJHtVRXIdO+0EZswxY=" />
-    <File path="\distr\Acr.Delivery.UpdateEngine.dll" hash="SHA1:zrstq9NekCumNfyiBfx/Ym9iapg=" />
+    <File path="\config\Acr.SiteServer.Shell.exe.config" hash="SHA1:w9vE5xlZPnsfvN/c2H5OpYmd4ec=" />
+    <File path="\distr\Acr.Delivery.Commons.dll" hash="SHA1:JXy1D1W0cu+lg3JT41VLVpF56x4=" />
+    <File path="\distr\Acr.Delivery.Packaging.dll" hash="SHA1:JLPOumI1eo/RqUgG5VLiPcZogCM=" />
+    <File path="\distr\Acr.Delivery.UpdateEngine.dll" hash="SHA1:AATMhMF5nw0gkOlFqhUtBRhvZZw=" />
     <File path="\distr\Acr.SiteServer.SharedLibs.EFCore.dll" hash="SHA1:vHqdnlqH97U903GtI2I2nCmO0Ms=" />
     <File path="\distr\Acr.SiteServer.SharedLibs.Quartz.dll" hash="SHA1:Zm+qDQ6r0E2rYEEouZ+0DtdQBGQ=" />
-    <File path="\distr\Acr.SiteServer.Shell.exe" hash="SHA1:Kemw/q7SddTtj4NfCUIA5uWUHnQ=" />
-    <File path="\distr\Acr.SiteServer.Shell.pdb" hash="SHA1:lqfep4g3lBbpAKtB/WQifQhNq9k=" />
+    <File path="\distr\Acr.SiteServer.Shell.exe" hash="SHA1:AudxpcjXcLA0JjbWGwdee+YwsJ4=" />
+    <File path="\distr\Acr.SiteServer.Shell.pdb" hash="SHA1:0flHL3WAKHWdEu2708/9gBNNaK8=" />
     <File path="\distr\Common.Logging.Core.dll" hash="SHA1:32cwEk57GiiPl8t/26v1NIE3kjU=" />
     <File path="\distr\Common.Logging.Core.pdb" hash="SHA1:Jrs51pEZkCFWv8clyxIYQRciKRc=" />
     <File path="\distr\Common.Logging.Core.xml" hash="SHA1:Kg5o+SWj/oN14mbW87LkScy+y38=" />
@@ -20,16 +20,16 @@
     <File path="\distr\Common.Logging.xml" hash="SHA1:eV7Tf5Rg6PP9QjrQiwCwsJF2VE4=" />
     <File path="\distr\JetBrains.Annotations.dll" hash="SHA1:7w7SF8RUmfpF5gSwLo+f8NakpR0=" />
     <File path="\distr\JetBrains.Annotations.xml" hash="SHA1:K00Ss3dsu7AcQsHydItuurWsqPE=" />
-    <File path="\distr\Microsoft.AspNetCore.Html.Abstractions.dll" hash="SHA1:JOIQ1VdMHZ8A6Qs/XnPaTb/Ac6E=" />
+    <File path="\distr\Microsoft.AspNetCore.Html.Abstractions.dll" hash="SHA1:3BP11WDRsZAR92xuZ1QcStGZjuI=" />
     <File path="\distr\Microsoft.AspNetCore.Html.Abstractions.xml" hash="SHA1:QQCYkqjBKvk/AmSN10147nBTkv0=" />
-    <File path="\distr\Microsoft.AspNetCore.Razor.dll" hash="SHA1:UkNrxv5GepbJOrZbBEI2TrBQ6YM=" />
-    <File path="\distr\Microsoft.AspNetCore.Razor.Runtime.dll" hash="SHA1:Kfavreqf6bNtmmtiSrPKdf8SfRQ=" />
-    <File path="\distr\Microsoft.AspNetCore.Razor.Runtime.xml" hash="SHA1:wTPl7jMUuLseFYAXRQG5l/Y8KFo=" />
-    <File path="\distr\Microsoft.AspNetCore.Razor.xml" hash="SHA1:Wxba22UiLz4zYpv2p1HB/nTYCPc=" />
-    <File path="\distr\Microsoft.CodeAnalysis.CSharp.dll" hash="SHA1:RLKiOobyt/bndkVwh/tz/zTpO+4=" />
-    <File path="\distr\Microsoft.CodeAnalysis.CSharp.xml" hash="SHA1:4eiNgTR4+GPCw1sNcalv7XvjhSA=" />
-    <File path="\distr\Microsoft.CodeAnalysis.dll" hash="SHA1:VHugFbZtg8fYjpMrB+rrYiCcQeU=" />
-    <File path="\distr\Microsoft.CodeAnalysis.xml" hash="SHA1:D4OncGqP1ChilVjanqVQ9xiPnUE=" />
+    <File path="\distr\Microsoft.AspNetCore.Razor.dll" hash="SHA1:mwiW36w/Z5JLnu1D4GoxUOpO9NU=" />
+    <File path="\distr\Microsoft.AspNetCore.Razor.Runtime.dll" hash="SHA1:TIRhvslyZSqSq5vPnR3/DAKe6ss=" />
+    <File path="\distr\Microsoft.AspNetCore.Razor.Runtime.xml" hash="SHA1:kck7gTReReTHeAko8P0IKrgOIsw=" />
+    <File path="\distr\Microsoft.AspNetCore.Razor.xml" hash="SHA1:eA893SZZrmuwnh/UIFneEvnY2Pc=" />
+    <File path="\distr\Microsoft.CodeAnalysis.CSharp.dll" hash="SHA1:phO/+JmMawxRrRnkVZXnYDhQqZ0=" />
+    <File path="\distr\Microsoft.CodeAnalysis.CSharp.xml" hash="SHA1:hYxMFlW/Q7Ibyf//wY82POyiP2E=" />
+    <File path="\distr\Microsoft.CodeAnalysis.dll" hash="SHA1:egqX9s8j/SnaEEjpexaZe81reyY=" />
+    <File path="\distr\Microsoft.CodeAnalysis.xml" hash="SHA1:0DxVU63l/v0YAi6vLp7+3mLVZ/4=" />
     <File path="\distr\Microsoft.Data.Sqlite.dll" hash="SHA1:Tx5QeYI4HFlxoCZhLrcCNVZ0Awc=" />
     <File path="\distr\Microsoft.Data.Sqlite.xml" hash="SHA1:aAHaVEO4ZhGLtJ5Q9Yr9Wcr1LH4=" />
     <File path="\distr\Microsoft.EntityFrameworkCore.Design.dll" hash="SHA1:VxYN0TCMyYVpXEulFXdcdGiwKQA=" />
@@ -75,6 +75,7 @@
     <File path="\distr\Microsoft.Owin.StaticFiles.xml" hash="SHA1:/BvrOK2yrR0u3AlJExQ6U3ga2Fo=" />
     <File path="\distr\Microsoft.Owin.xml" hash="SHA1:ZmSwgAQkspL55JJmdDYenrmwqbE=" />
     <File path="\distr\Microsoft.Win32.Primitives.dll" hash="SHA1:fppvZHiP7pvFmjNndtcIzxX/pyQ=" />
+    <File path="\distr\MimeSharp.dll" hash="SHA1:EUbt4gY/dNmVuGPk7zHCoZNpgio=" />
     <File path="\distr\netstandard.dll" hash="SHA1:HeEfslB16BJQxMR62AJlzJjETD4=" />
     <File path="\distr\Newtonsoft.Json.dll" hash="SHA1:L7C+EA3gNoD8QwnJ+lop5pOXqYA=" />
     <File path="\distr\Newtonsoft.Json.xml" hash="SHA1:uxfagTlm6gFDf2CIR9WrcPgok/M=" />
@@ -214,21 +215,30 @@
     <File path="\distr\System.Xml.XPath.XDocument.dll" hash="SHA1:L7yHp/CFv7SJiY74j9Fyb1qJe/Y=" />
     <File path="\distr\Topshelf.dll" hash="SHA1:5RRVNCZoYPbfbUGf8/Jhix3IeY0=" />
     <File path="\distr\Topshelf.xml" hash="SHA1:dmbb/R9bLCLqYiag6cPbRF05O94=" />
+    <File path="\distr\WebApi.OutputCache.Core.dll" hash="SHA1:cGVYT6HbbyulC7ZEqrtEGVU1s+o=" />
+    <File path="\distr\WebApi.OutputCache.V2.dll" hash="SHA1:l4Fs5eo5tHrXvUf9N13vDubxAxg=" />
     <File path="\distr\assets\logo.png" hash="SHA1:WUa3qUnCSYuZYDVaKuw84vjYoTc=" />
     <File path="\distr\x64\e_sqlite3.dll" hash="SHA1:VMsT7YOqSXfyIpfGdW1XygX+NU0=" />
     <File path="\distr\x86\e_sqlite3.dll" hash="SHA1:Xv/EeTVvj/ifFzhbeBNWfjCyPqU=" />
-    <File path="\webui\3rdpartylicenses.txt" hash="SHA1:FqZ62d0O9QqGTv4uFwgBjmpu/uw=" />
-    <File path="\webui\favicon.ico" hash="SHA1:hBYbhX9cVH42md37/8bY1zdULgE=" />
+    <File path="\webui\3rdpartylicenses.txt" hash="SHA1:1QCt0LMuDXM2p8lXEZKZMx2HJgY=" />
+    <File path="\webui\favicon.ico" hash="SHA1:b3DGTQzAmAruA4+ruSkVCGlfny8=" />
     <File path="\webui\glyphicons-halflings-regular.448c34a56d699c29117a.woff2" hash="SHA1:yjW2l9mcrk0bYPLWD803dxmH6wc=" />
     <File path="\webui\glyphicons-halflings-regular.89889688147bd7575d63.svg" hash="SHA1:3lGoSUGAptsHSvLe4jg/CjY8Wwg=" />
     <File path="\webui\glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" hash="SHA1:RLwYUPVwlyJnsWmuGPHLBrYR/6I=" />
     <File path="\webui\glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" hash="SHA1:hrb2K3hT5n0+Y19lEqWl78WOo8M=" />
     <File path="\webui\glyphicons-halflings-regular.fa2772327f55d8198301.woff" hash="SHA1:J45JqG5jTabyoC87R92dKo8mIQ8=" />
-    <File path="\webui\index.html" hash="SHA1:1lcsn77dY6ppa0HpVKrYuYxMDFo=" />
-    <File path="\webui\inline.37df2069ceb771ab6e5f.bundle.js" hash="SHA1:9W8gdLQFJIY00F47H2iLeXso7lQ=" />
-    <File path="\webui\main.4b2a0a945ef4e285a700.bundle.js" hash="SHA1:55MHi5L5V3Xa5eWkbWhJt/zBCt0=" />
+    <File path="\webui\index.html" hash="SHA1:/Lo63gKzGN2OVavRNTvC8w+ld5c=" />
+    <File path="\webui\inline.bb224c649dfab9d77d19.bundle.js" hash="SHA1:0xxdYirgIgF5e7/ZCb8zwvcsGbM=" />
+    <File path="\webui\main.97f699d8bd1e7c0708cf.bundle.js" hash="SHA1:zGo60AS4oh+FgcnhMBqzXZu/9hM=" />
     <File path="\webui\polyfills.35726d60cdf25fecc5f1.bundle.js" hash="SHA1:Hkd56wD/3M5Mn09vfKadYNEBsqs=" />
-    <File path="\webui\styles.20775170c5af0a276b70.bundle.css" hash="SHA1:WMq9k0NV2eztwE5GN9HNsC08THg=" />
-    <File path="\webui\vendor.3f2501506266afd2fef7.bundle.js" hash="SHA1:p73BmQEUhNo2puw/8CcTP4lPaTQ=" />
+    <File path="\webui\styles.a1b256aadeb275869e3b.bundle.css" hash="SHA1:GtjRisA4KuiYTtUtGG4IYWHufVM=" />
+    <File path="\webui\vendor.084ab8617d79d3997836.bundle.js" hash="SHA1:0/gaHkBJLeiyovuD4Lv8O+Gdfk0=" />
+    <File path="\webui\assets\ct.png" hash="SHA1:lY8MPcsPWrXYWwsavAbHcU/riKg=" />
+    <File path="\webui\assets\Dicom.jpg" hash="SHA1:vf5WgbSsmSNH2WMWK1s8msnc4zE=" />
+    <File path="\webui\assets\hl7.png" hash="SHA1:0SKJxLX2VLT1Cpee/uX3PP3mvq4=" />
+    <File path="\webui\assets\ir.jpg" hash="SHA1:IctXeBsaADWmw9VH/IC0iafnJMQ=" />
+    <File path="\webui\assets\nrdr_dir.jpg" hash="SHA1:7Io1o9XVpc8e269aGhvQiC/B6QA=" />
+    <File path="\webui\assets\shell.png" hash="SHA1:pv9YF1tUwOscUevdmichdt3LFrU=" />
+    <File path="\webui\assets\spinner-small.gif" hash="SHA1:3KvddD/T6de9Vker64bmaj5vlZc=" />
   </Content>
 </Package>

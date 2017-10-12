@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <Property Id="WixSilentExecCmdLine" Value="command line to run" Hidden="no"/>
-    <CustomAction Id="InstallService" Directory="INSTALLDIR" ExeCommand ="Install.bat" Execute="immediate" Return="check" />
+    <CustomAction Id="InstallService" FileKey ="BatchFile" ExeCommand ="" Return="asyncNoWait" />
     <CustomAction Id         ="echo_test"
               Directory  ="INSTALLDIR"
               ExeCommand ='NOTEPAD.EXE echo_test.txt'

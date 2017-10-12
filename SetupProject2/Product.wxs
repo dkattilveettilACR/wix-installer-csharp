@@ -64,11 +64,15 @@
     </Feature>
 
     <InstallExecuteSequence>
-      <Custom Action="InstallService" After='InstallFiles'>NOT Installed AND NOT UPGRADINGPRODUCTCODE </Custom>
+      <Custom Action='InstallService' After='InstallFinalize'>NOT Installed</Custom>
     </InstallExecuteSequence>
+    
     <UI>
-    <UIRef Id="WixUI_InstallDir" />
-    <UIRef Id="WixUI_ErrorProgressText" />
+      <UIRef Id="WixUI_InstallDir" />
+      <UIRef Id="WixUI_ErrorProgressText" />
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="SettingsDlg">1</Publish>
+      <Publish Dialog="SettingsDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+      <Publish Dialog="SpecialDlg" Control="Next" Event="NewDialog" Value="ExitDlg">1</Publish>
     </UI>
     <Icon Id="Foobar10.exe" SourceFile="FoobarAppl10.exe" />
     <WixVariable Id="WixUILicenseRtf" Value="Path\License.rtf" />
