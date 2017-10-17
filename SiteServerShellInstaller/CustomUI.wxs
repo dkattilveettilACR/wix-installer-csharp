@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='Windows-1252'?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <UI>
+      <Dialog Id="URLConfigDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="NameLabel" Type="Text" X="45" Y="70" Width="100" Height="15" TabSkip="no" Text="&amp;User Name:" />
+        <Control Id="NameEdit" Type="Edit" X="150" Y="70" Width="120" Height="18" Property="USERNAME" Text="[USERNAME]" />
+        <Control Id="PwdLabel" Type="Text" X="45" Y="100" Width="100" Height="15" TabSkip="no" Text="&amp;Password:" />
+        <Control Id="PwdEdit" Type="Edit" X="150" Y="100" Width="120" Height="18" Property="PASSWORD" Password="yes"/>
+        <Control Id="ConfirmPwdLabel" Type="Text" X="45" Y="130" Width="100" Height="15" TabSkip="no" Text="&amp;Confirm Password:" />
+        <Control Id="ConfirmPwdEdit" Type="Edit" X="150" Y="130" Width="120" Height="18" Property="CONFIRMPASSWORD" Password="yes"/>
+        
+        <Control Id="ServerPORT" Type="Text" X="45" Y="160" Width="120" Height="18" TabSkip="no" Text="&amp;Site Server Shell Port:" />
+        <Control Id="ServerPORTEdit" Type="Edit" X="150" Y="160" Width="50" Height="18" Property="SERVERPORT" Text="[SERVERPORT]" />
+        
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back">
+          <Publish Event="NewDialog" Value="CustomizeDlg">1</Publish>
+        </Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="&amp;Next">
+          <Publish Event="DoAction" Value="VerifyCredentials">1</Publish>
+          <Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="Cancel">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+      </Dialog>
+    </UI>
+
+    <Property Id="USERNAME">admin</Property>
+    <Property Id="PASSWORD"></Property>
+    <Property Id="CONFIRMPASSWORD"></Property>
+    <Property Id="SERVERPORT">80</Property>
+  </Fragment>
+</Wix>

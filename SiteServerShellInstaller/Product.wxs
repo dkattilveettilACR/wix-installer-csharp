@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <?include $(sys.CURRENTDIR)Variables.wxi ?>  
-	<Product Id="{D121F4FC-965E-4A45-B3AA-3313956DEE1B}" Name="ACR Site Server Shell" Language="1033" Version="1.0.0.0" Manufacturer="ACR" UpgradeCode="4a3d7b8f-4323-4fb0-9b8e-519b75268d67">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include $(sys.CURRENTDIR)Variables.wxi ?>
+  <Product Id="{D121F4FC-965E-4A45-B3AA-3313956DEE1B}" Name="ACR Site Server Shell" Language="1033" Version="1.0.0.0" Manufacturer="ACR" UpgradeCode="4a3d7b8f-4323-4fb0-9b8e-519b75268d67">
     <Package Id='*' Keywords='Installer'
       Description="ACR's Site Server Installer"
       Comments='Site Server is a registered trademark of ACR.' Manufacturer='ACR'
       InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
-  
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
 
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
-    <Property Id="SHELL_PORT_NUMBER" Value ="2000" />
-    <WixVariable Id="WixUILicenseRtf" Value="Path\License.rtf" />
+    <!-- <PropertyRef Id="NETFRAMEWORK47FULL"/>
+    <PropertyRef Id="NETFRAMEWORK47FULLINSTALLROOTDIR"/>-->
+    <!-- Verifies whether .NET Framework is installed -->
+    <!-- <Condition Message="This application requires .NET Framework 4.7. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR NETFRAMEWORK47FULL]]>
+    </Condition>-->
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
 
     <Directory Id='TARGETDIR' Name='SourceDir'>
       <Directory Id='ProgramFilesFolder' Name='PFiles'>
@@ -25,6 +29,28 @@
               <Component Id='ConfigFile' Guid='{141FBE33-F635-45A5-86BE-81FC92807FAE}'>
                 <File Id='ConfigFile' Name='Acr.SiteServer.Shell.exe.config' DiskId='1' Source='AcrSiteServerShell\config\Acr.SiteServer.Shell.exe.config' KeyPath='yes' />
               </Component>
+              <!--Update the values received from the user in the config file-->
+              <Component Id="ChangeConfig" Guid="{2116358D-CE65-42A0-BC8D-01ED895DAFAC}">
+                <util:XmlConfig Id="AppConfigSetUserName" Action="create" On="install" File="[#ConfigFile]"
+                             ElementPath="/configuration/appSettings"
+                             Name="add"/>
+                <util:XmlConfig Id="attUserKey"
+                            File="[#ConfigFile]" ElementId="AppConfigSetUserName"
+                            Name="key" Value="UserName"/>
+                <util:XmlConfig Id="attUserValue"
+                            File="[#ConfigFile]" ElementId="AppConfigSetUserName"
+                            Name="value" Value="[USERNAME]" />
+                <util:XmlConfig Id="AppConfigSetPassword" Action="create" On="install" File="[#ConfigFile]"
+                             ElementPath="/configuration/appSettings"
+                             Name="add"/>
+                <util:XmlConfig Id="attPwdKey"
+                            File="[#ConfigFile]" ElementId="AppConfigSetPassword"
+                            Name="key" Value="Password" />
+                <util:XmlConfig Id="attPwdValue"
+                            File="[#ConfigFile]" ElementId="AppConfigSetPassword"
+                            Name="value" Value="[PASSWORD]" />
+                <CreateFolder/>
+              </Component>
             </Directory>
             <Directory Id='WEBROOTDIR' Name='wwwroot'>
               <Directory Id='SHELLWEBDIR' Name='$(var.ShellRootDir)_$(var.Version)'></Directory>
@@ -33,24 +59,66 @@
         </Directory>
       </Directory>
     </Directory>
-    
+
     <Feature Id='ShellService' Title='Site Server Shell' Description='The service package.'
      Display='expand' Level='1'>
       <ComponentGroupRef  Id='ShellServicePackage'></ComponentGroupRef>
       <ComponentRef Id ='ConfigFile' ></ComponentRef>
+      <ComponentRef Id ='ChangeConfig' ></ComponentRef>
       <ComponentGroupRef  Id='ShellWebPackage'></ComponentGroupRef>
       <ComponentRef Id ="SiteServer" ></ComponentRef>
     </Feature>
 
+    <UIRef Id="WixUI_Common" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <WixVariable Id="WixUIBannerBmp"  Value="$(var.ProjectDir)Resources\Bitmaps\bannrbmp.bmp"/>
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)Resources\Bitmaps\dlgbmp.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)Resources\License\license.rtf"/>
     <UI>
-      <UIRef Id="WixUI_InstallDir" />
-      <UIRef Id="WixUI_ErrorProgressText" />
-      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="SettingsDlg">1</Publish>
-      <Publish Dialog="SettingsDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg">1</Publish>
-      <Publish Dialog="SettingsDlg" Control="Next" Event="NewDialog" Value="FeaturesDlg">1</Publish>
-      <Publish Dialog="FeaturesDlg" Control="Back" Event="NewDialog" Value="SettingsDlg">1</Publish>
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="PIDTemplate" Value="####-####-####-####" />
+      <Property Id="ARPNOMODIFY" Value="1" />
+
+      <DialogRef Id="BrowseDlg" />
+      <DialogRef Id="DiskCostDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+      <DialogRef Id="URLConfigDlg" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="LicenseAgreementDlg" >1</Publish>
+      <Publish Dialog="LicenseAgreementDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+      <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">LicenseAccepted = "1"</Publish>
+
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="CustomizeDlg" Order="2">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+
+      <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="1">Installed</Publish>
+      <Publish Dialog="CustomizeDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg" Order="2">NOT Installed</Publish>
+      <Publish Dialog="CustomizeDlg" Control="Next" Event="NewDialog" Value="URLConfigDlg">1</Publish>
+
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="URLConfigDlg" Order="1">NOT Installed</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed</Publish>
+
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
     </UI>
-    
+
     <InstallExecuteSequence>
       <Custom Action="ShellServiceInstall" Before='InstallFinalize'>NOT Installed</Custom>
       <Custom Action="ShellServiceStart" After="ShellServiceInstall">NOT Installed</Custom>

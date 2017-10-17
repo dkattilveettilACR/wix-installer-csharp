@@ -19,8 +19,8 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Action.wxs" />
-    <Compile Include="SettingsDlg.wxs" />
+    <Compile Include="CustomAction.wxs" />
+    <Compile Include="CustomUI.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +32,11 @@
     <Folder Include="AcrSiteServerShell\config" />
     <Folder Include="AcrSiteServerShell\webui" />
     <Folder Include="Path\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Bitmaps\" />
+    <Folder Include="Resources\Cert\" />
+    <Folder Include="Resources\DB\" />
+    <Folder Include="Resources\License\" />
     <HarvestDirectory Include="AcrSiteServerShell\distr">
       <DirectoryRefId>INSTALLDIR</DirectoryRefId>
       <ComponentGroupName>ShellServicePackage</ComponentGroupName>
@@ -287,6 +292,16 @@
     <Content Include="AcrSiteServerShell\webui\styles.20775170c5af0a276b70.bundle.css" />
     <Content Include="AcrSiteServerShell\webui\vendor.3f2501506266afd2fef7.bundle.js" />
     <Content Include="HeatTransform.xsl" />
+    <Content Include="Resources\Bitmaps\bannrbmp.bmp" />
+    <Content Include="Resources\Bitmaps\dlgbmp.bmp" />
+    <Content Include="Resources\Bitmaps\Thumbs.db" />
+    <Content Include="Resources\Bitmaps\triad logo.jpg" />
+    <Content Include="Resources\Bitmaps\Triad.ico" />
+    <Content Include="Resources\Cert\triad.cer" />
+    <Content Include="Resources\Cert\Triad_Temporary.pfx" />
+    <Content Include="Resources\DB\TriadSiteDB.sdf" />
+    <Content Include="Resources\License\license.rtf" />
+    <Content Include="Resources\Thumbs.db" />
     <Content Include="Variables.wxi" />
     <Content Include="Path\License.rtf" />
   </ItemGroup>
