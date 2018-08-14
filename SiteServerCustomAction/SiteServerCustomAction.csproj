@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,8 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomAction.cs" />
+    <Compile Include="Installer.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="NoSelfControl.cs" />
+    <Compile Include="NoTransactionStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="CustomAction.config" />
+    <Content Include="CustomAction.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

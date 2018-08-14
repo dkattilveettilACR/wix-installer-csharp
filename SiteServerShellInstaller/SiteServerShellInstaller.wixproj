@@ -24,286 +24,44 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AcrSiteServerShell" />
-    <Folder Include="AcrSiteServerShell\distr" />
-    <Folder Include="AcrSiteServerShell\distr\assets" />
-    <Folder Include="AcrSiteServerShell\distr\x86" />
-    <Folder Include="AcrSiteServerShell\distr\x64" />
-    <Folder Include="AcrSiteServerShell\config" />
-    <Folder Include="AcrSiteServerShell\webui" />
+    <Folder Include="InstallUtil\" />
     <Folder Include="Path\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\Bitmaps\" />
-    <Folder Include="Resources\Cert\" />
-    <Folder Include="Resources\DB\" />
     <Folder Include="Resources\License\" />
-    <HarvestDirectory Include="AcrSiteServerShell\distr">
-      <DirectoryRefId>INSTALLDIR</DirectoryRefId>
-      <ComponentGroupName>ShellServicePackage</ComponentGroupName>
-      <PreprocessorVariable>var.ServiceSourceDir</PreprocessorVariable>
-      <SuppressUniqueIds>false</SuppressUniqueIds>
-      <SuppressCom>true</SuppressCom>
-      <SuppressRegistry>true</SuppressRegistry>
-      <SuppressRootDirectory>true</SuppressRootDirectory>
-      <KeepEmptyDirectories>false</KeepEmptyDirectories>
-      <Transforms>HeatTransform.xsl</Transforms>
-    </HarvestDirectory>
-    <HarvestDirectory Include="AcrSiteServerShell\webui">
-      <DirectoryRefId>SHELLWEBDIR</DirectoryRefId>
-      <ComponentGroupName>ShellWebPackage</ComponentGroupName>
-      <PreprocessorVariable>var.WebSourceDir</PreprocessorVariable>
-      <SuppressUniqueIds>false</SuppressUniqueIds>
-      <SuppressCom>true</SuppressCom>
-      <SuppressRegistry>true</SuppressRegistry>
-      <SuppressRootDirectory>true</SuppressRootDirectory>
-      <KeepEmptyDirectories>false</KeepEmptyDirectories>
-      <Transforms>HeatTransform.xsl</Transforms>
-    </HarvestDirectory>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AcrSiteServerShell\config\Acr.SiteServer.Shell.exe.config" />
-    <Content Include="AcrSiteServerShell\distr\Acr.Delivery.Commons.dll" />
-    <Content Include="AcrSiteServerShell\distr\Acr.Delivery.Packaging.dll" />
-    <Content Include="AcrSiteServerShell\distr\Acr.Delivery.UpdateEngine.dll" />
-    <Content Include="AcrSiteServerShell\distr\Acr.SiteServer.SharedLibs.EFCore.dll" />
-    <Content Include="AcrSiteServerShell\distr\Acr.SiteServer.SharedLibs.Quartz.dll" />
-    <Content Include="AcrSiteServerShell\distr\Acr.SiteServer.Shell.exe" />
-    <Content Include="AcrSiteServerShell\distr\Acr.SiteServer.Shell.pdb" />
-    <Content Include="AcrSiteServerShell\distr\assets\logo.png" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.Core.dll" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.Core.pdb" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.Core.xml" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.dll" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.NLog4412.dll" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.NLog4412.pdb" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.NLog4412.xml" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.pdb" />
-    <Content Include="AcrSiteServerShell\distr\Common.Logging.xml" />
-    <Content Include="AcrSiteServerShell\distr\JetBrains.Annotations.dll" />
-    <Content Include="AcrSiteServerShell\distr\JetBrains.Annotations.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Html.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Html.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Razor.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Razor.Runtime.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Razor.Runtime.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.AspNetCore.Razor.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.CodeAnalysis.CSharp.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.CodeAnalysis.CSharp.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.CodeAnalysis.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.CodeAnalysis.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Data.Sqlite.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Data.Sqlite.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Design.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Design.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Relational.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Relational.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Sqlite.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.Sqlite.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.EntityFrameworkCore.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Caching.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Caching.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Caching.Memory.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Caching.Memory.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Configuration.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Configuration.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.DependencyInjection.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.DependencyInjection.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileProviders.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileProviders.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileProviders.Physical.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileProviders.Physical.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileSystemGlobbing.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.FileSystemGlobbing.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Logging.Abstractions.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Logging.Abstractions.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Logging.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Logging.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Options.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Options.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Extensions.Primitives.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.FileSystems.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.FileSystems.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.Host.HttpListener.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.Host.HttpListener.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.Hosting.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.Hosting.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.StaticFiles.dll" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.StaticFiles.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Owin.xml" />
-    <Content Include="AcrSiteServerShell\distr\Microsoft.Win32.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\netstandard.dll" />
-    <Content Include="AcrSiteServerShell\distr\Newtonsoft.Json.dll" />
-    <Content Include="AcrSiteServerShell\distr\Newtonsoft.Json.xml" />
-    <Content Include="AcrSiteServerShell\distr\NLog.dll" />
-    <Content Include="AcrSiteServerShell\distr\NLog.xml" />
-    <Content Include="AcrSiteServerShell\distr\Owin.dll" />
-    <Content Include="AcrSiteServerShell\distr\Quartz.dll" />
-    <Content Include="AcrSiteServerShell\distr\Quartz.pdb" />
-    <Content Include="AcrSiteServerShell\distr\Quartz.xml" />
-    <Content Include="AcrSiteServerShell\distr\RazorLight.dll" />
-    <Content Include="AcrSiteServerShell\distr\Remotion.Linq.dll" />
-    <Content Include="AcrSiteServerShell\distr\Remotion.Linq.xml" />
-    <Content Include="AcrSiteServerShell\distr\SQLitePCLRaw.batteries_green.dll" />
-    <Content Include="AcrSiteServerShell\distr\SQLitePCLRaw.batteries_v2.dll" />
-    <Content Include="AcrSiteServerShell\distr\SQLitePCLRaw.core.dll" />
-    <Content Include="AcrSiteServerShell\distr\SQLitePCLRaw.provider.e_sqlite3.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.AppContext.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Buffers.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Buffers.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.Concurrent.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.Immutable.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.Immutable.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.NonGeneric.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Collections.Specialized.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ComponentModel.Annotations.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ComponentModel.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ComponentModel.EventBasedAsync.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ComponentModel.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ComponentModel.TypeConverter.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Configuration.ConfigurationManager.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Console.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Data.Common.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.Contracts.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.Debug.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.DiagnosticSource.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.DiagnosticSource.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.FileVersionInfo.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.Process.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.StackTrace.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.TextWriterTraceListener.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.Tools.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.TraceSource.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Diagnostics.Tracing.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Drawing.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Dynamic.Runtime.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Globalization.Calendars.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Globalization.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Globalization.Extensions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Interactive.Async.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Interactive.Async.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.Compression.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.Compression.ZipFile.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.FileSystem.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.FileSystem.DriveInfo.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.FileSystem.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.FileSystem.Watcher.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.IsolatedStorage.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.MemoryMappedFiles.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.Pipes.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.IO.UnmanagedMemoryStream.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Linq.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Linq.Expressions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Linq.Parallel.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Linq.Queryable.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Http.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Http.Formatting.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Http.Formatting.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.NameResolution.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.NetworkInformation.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Ping.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Requests.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Security.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.Sockets.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.WebHeaderCollection.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.WebSockets.Client.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Net.WebSockets.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ObjectModel.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Reflection.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Reflection.Extensions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Reflection.Metadata.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Reflection.Metadata.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Reflection.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Resources.Reader.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Resources.ResourceManager.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Resources.Writer.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.CompilerServices.Unsafe.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.CompilerServices.Unsafe.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.CompilerServices.VisualC.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Extensions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Handles.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.InteropServices.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.InteropServices.RuntimeInformation.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Numerics.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Serialization.Formatters.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Serialization.Json.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Serialization.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Runtime.Serialization.Xml.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Claims.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Cryptography.Csp.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.Principal.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Security.SecureString.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ServiceProcess.ServiceController.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.Encoding.CodePages.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.Encoding.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.Encoding.Extensions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.Encodings.Web.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.Encodings.Web.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Text.RegularExpressions.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.Overlapped.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.Tasks.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.Tasks.Parallel.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.Thread.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.ThreadPool.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Threading.Timer.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.ValueTuple.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Cors.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.Cors.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.Cors.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.Owin.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.Owin.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Web.Http.xml" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.ReaderWriter.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.XDocument.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.XmlDocument.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.XmlSerializer.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.XPath.dll" />
-    <Content Include="AcrSiteServerShell\distr\System.Xml.XPath.XDocument.dll" />
-    <Content Include="AcrSiteServerShell\distr\Topshelf.dll" />
-    <Content Include="AcrSiteServerShell\distr\Topshelf.xml" />
-    <Content Include="AcrSiteServerShell\distr\x64\e_sqlite3.dll" />
-    <Content Include="AcrSiteServerShell\distr\x86\e_sqlite3.dll" />
-    <Content Include="AcrSiteServerShell\manifest.xml" />
-    <Content Include="AcrSiteServerShell\webui\3rdpartylicenses.txt" />
-    <Content Include="AcrSiteServerShell\webui\favicon.ico" />
-    <Content Include="AcrSiteServerShell\webui\glyphicons-halflings-regular.448c34a56d699c29117a.woff2" />
-    <Content Include="AcrSiteServerShell\webui\glyphicons-halflings-regular.89889688147bd7575d63.svg" />
-    <Content Include="AcrSiteServerShell\webui\glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" />
-    <Content Include="AcrSiteServerShell\webui\glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" />
-    <Content Include="AcrSiteServerShell\webui\glyphicons-halflings-regular.fa2772327f55d8198301.woff" />
-    <Content Include="AcrSiteServerShell\webui\index.html" />
-    <Content Include="AcrSiteServerShell\webui\inline.37df2069ceb771ab6e5f.bundle.js" />
-    <Content Include="AcrSiteServerShell\webui\main.4b2a0a945ef4e285a700.bundle.js" />
-    <Content Include="AcrSiteServerShell\webui\polyfills.35726d60cdf25fecc5f1.bundle.js" />
-    <Content Include="AcrSiteServerShell\webui\styles.20775170c5af0a276b70.bundle.css" />
-    <Content Include="AcrSiteServerShell\webui\vendor.3f2501506266afd2fef7.bundle.js" />
     <Content Include="HeatTransform.xsl" />
+    <Content Include="InstallUtil\Acr.Delivery.Commons.dll" />
+    <Content Include="InstallUtil\Acr.Delivery.Packaging.dll" />
+    <Content Include="InstallUtil\Acr.Delivery.UpdateEngine.dll" />
+    <Content Include="InstallUtil\Acr.SiteServer.InstallUtil.Demo.exe" />
+    <Content Include="InstallUtil\Acr.SiteServer.InstallUtil.Demo.exe.config" />
+    <Content Include="InstallUtil\Acr.SiteServer.InstallUtil.Demo.pdb" />
+    <Content Include="InstallUtil\Acr.SiteServer.InstallUtil.dll" />
+    <Content Include="InstallUtil\Acr.SiteServer.InstallUtil.pdb" />
+    <Content Include="InstallUtil\Newtonsoft.Json.dll" />
+    <Content Include="InstallUtil\Newtonsoft.Json.xml" />
     <Content Include="Resources\Bitmaps\bannrbmp.bmp" />
     <Content Include="Resources\Bitmaps\dlgbmp.bmp" />
     <Content Include="Resources\Bitmaps\Thumbs.db" />
     <Content Include="Resources\Bitmaps\triad logo.jpg" />
     <Content Include="Resources\Bitmaps\Triad.ico" />
-    <Content Include="Resources\Cert\triad.cer" />
-    <Content Include="Resources\Cert\Triad_Temporary.pfx" />
-    <Content Include="Resources\DB\TriadSiteDB.sdf" />
     <Content Include="Resources\License\license.rtf" />
     <Content Include="Resources\Thumbs.db" />
     <Content Include="Variables.wxi" />
     <Content Include="Path\License.rtf" />
+	<HarvestDirectory Include="InstallUtil">
+      <DirectoryRefId>InstallUtil</DirectoryRefId>
+      <ComponentGroupName>ShellInstallUtil</ComponentGroupName>
+      <PreprocessorVariable>var.InstallUtilSource</PreprocessorVariable>
+      <SuppressUniqueIds>false</SuppressUniqueIds>
+      <SuppressCom>true</SuppressCom>
+      <SuppressRegistry>true</SuppressRegistry>
+      <SuppressRootDirectory>true</SuppressRootDirectory>
+      <KeepEmptyDirectories>false</KeepEmptyDirectories>
+      <Transforms>HeatTransform.xsl</Transforms>
+    </HarvestDirectory>
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">

@@ -2,11 +2,9 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <Property Id="WixSilentExecCmdLine" Value="command line to run" Hidden="no"/>
-    <CustomAction Id="ShellServiceInstall" FileKey="filD50580F259EECDAAD51F96FE3817D610" ExeCommand ="install -webapi:http://localhost:[SERVERPORT]/" Return="check" Impersonate="no" Execute="deferred"/>
-    <CustomAction Id="ShellServiceStart" FileKey="filD50580F259EECDAAD51F96FE3817D610" ExeCommand ="start" Return="check" Impersonate="no" Execute="deferred"/>
-    <CustomAction Id="ShellServiceStop" FileKey="filD50580F259EECDAAD51F96FE3817D610" ExeCommand ="stop" Return="check" Impersonate="no" Execute="deferred"/>
-    <CustomAction Id="ShellServiceUninstall" FileKey="filD50580F259EECDAAD51F96FE3817D610" ExeCommand ="uninstall" Return="check" Impersonate="no" Execute="deferred"/>
-    <CustomAction Id='VerifyCredentials' BinaryKey='CustomActions' DllEntry='VerifyCredentials' Execute='deferred' Return='check' />
+    <CustomAction Id="ShellServiceInstall" FileKey="fil5E7DD2637C220F2A56DD684ABEAC2F09" ExeCommand = "install &quot;Acr.SiteServer.Shell.[VERSION].zip&quot; &quot;[VERSION]&quot; &quot;http://localhost:[SERVERPORT]/&quot; &quot;CN=acr.org&quot;" Return="check" Impersonate="no" Execute="deferred"/>
+    <CustomAction Id="ShellServiceUninstall" FileKey="fil5E7DD2637C220F2A56DD684ABEAC2F09" ExeCommand="uninstall &quot;http://localhost:[SERVERPORT]/&quot;" Return="check" Impersonate="no" Execute="deferred"/>
+    <CustomAction Id='VerifyCredentials' BinaryKey='CustomActions' DllEntry='VerifyCredentials' Execute='deferred' Return='check'/>
     <Binary Id="CustomActions" SourceFile="..\SiteServerCustomAction\bin\Debug\SiteServerCustomAction.CA.dll" />
   </Fragment>
 </Wix>

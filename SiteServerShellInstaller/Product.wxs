@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <?include $(sys.CURRENTDIR)Variables.wxi ?>
-  <Product Id="{D121F4FC-965E-4A45-B3AA-3313956DEE1B}" Name="ACR Site Server Shell" Language="1033" Version="1.0.0.0" Manufacturer="ACR" UpgradeCode="4a3d7b8f-4323-4fb0-9b8e-519b75268d67">
+  <Product Id="{110A8532-4709-4DB2-9591-570CE04D2916}" Name="ACR Site Server Shell" Language="1033" Version="1.0.0.0" Manufacturer="ACR" UpgradeCode="4a3d7b8f-4323-4fb0-9b8e-519b75268d67">
     <Package Id='*' Keywords='Installer'
       Description="ACR's Site Server Installer"
       Comments='Site Server is a registered trademark of ACR.' Manufacturer='ACR'
@@ -23,37 +23,15 @@
         <Directory Id='ACR' Name='ACR'>
           <Directory Id='SiteServer' Name='SiteServer'>
             <Component Id="SiteServer" Guid="{A1F878B1-DC96-4747-B7C8-E0D52B01D0A8}">
-              <RemoveFolder Id='SiteServer' On='uninstall' />
+              <RemoveFolder Id='SITESERVER' On='uninstall' />
             </Component>
-            <Directory Id='INSTALLDIR' Name='$(var.ShellRootDir)_$(var.Version)'>
-              <Component Id='ConfigFile' Guid='{141FBE33-F635-45A5-86BE-81FC92807FAE}'>
-                <File Id='ConfigFile' Name='Acr.SiteServer.Shell.exe.config' DiskId='1' Source='AcrSiteServerShell\config\Acr.SiteServer.Shell.exe.config' KeyPath='yes' />
+            <Directory Id="InstallUtil" Name="InstallUtil">
+              <Component Id ='Package' Guid='{8561B164-5D16-47AA-999B-35E0D7233E5B}'>
+                <File Id='PackageZip' Name='Acr.SiteServer.Shell.$(var.Version).zip' DiskId='1' Source="$(var.PackageSource)" KeyPath="yes"></File>
               </Component>
-              <!--Update the values received from the user in the config file-->
-              <Component Id="ChangeConfig" Guid="{2116358D-CE65-42A0-BC8D-01ED895DAFAC}">
-                <util:XmlConfig Id="AppConfigSetUserName" Action="create" On="install" File="[#ConfigFile]"
-                             ElementPath="/configuration/appSettings"
-                             Name="add"/>
-                <util:XmlConfig Id="attUserKey"
-                            File="[#ConfigFile]" ElementId="AppConfigSetUserName"
-                            Name="key" Value="UserName"/>
-                <util:XmlConfig Id="attUserValue"
-                            File="[#ConfigFile]" ElementId="AppConfigSetUserName"
-                            Name="value" Value="[USERNAME]" />
-                <util:XmlConfig Id="AppConfigSetPassword" Action="create" On="install" File="[#ConfigFile]"
-                             ElementPath="/configuration/appSettings"
-                             Name="add"/>
-                <util:XmlConfig Id="attPwdKey"
-                            File="[#ConfigFile]" ElementId="AppConfigSetPassword"
-                            Name="key" Value="Password" />
-                <util:XmlConfig Id="attPwdValue"
-                            File="[#ConfigFile]" ElementId="AppConfigSetPassword"
-                            Name="value" Value="[PASSWORD]" />
-                <CreateFolder/>
+              <Component Id="InstallUtil" Guid="{EAE05B7C-5D18-4F2B-A33A-86204F80239A}">
+                <RemoveFolder Id='InstallUtil' On='uninstall' />
               </Component>
-            </Directory>
-            <Directory Id='WEBROOTDIR' Name='wwwroot'>
-              <Directory Id='SHELLWEBDIR' Name='$(var.ShellRootDir)_$(var.Version)'></Directory>
             </Directory>
           </Directory>
         </Directory>
@@ -62,15 +40,15 @@
 
     <Feature Id='ShellService' Title='Site Server Shell' Description='The service package.'
      Display='expand' Level='1'>
-      <ComponentGroupRef  Id='ShellServicePackage'></ComponentGroupRef>
-      <ComponentRef Id ='ConfigFile' ></ComponentRef>
-      <ComponentRef Id ='ChangeConfig' ></ComponentRef>
-      <ComponentGroupRef  Id='ShellWebPackage'></ComponentGroupRef>
       <ComponentRef Id ="SiteServer" ></ComponentRef>
+      <ComponentRef Id ="Package" ></ComponentRef>
+      <ComponentRef Id ="InstallUtil" ></ComponentRef>
+      <ComponentGroupRef Id ="ShellInstallUtil"></ComponentGroupRef>
     </Feature>
 
     <UIRef Id="WixUI_Common" />
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Property Id="WIXUI_INSTALLDIR" Value="SiteServer" />
+    <Property Id="VERSION" Value="$(var.Version)" />
     <WixVariable Id="WixUIBannerBmp"  Value="$(var.ProjectDir)Resources\Bitmaps\bannrbmp.bmp"/>
     <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)Resources\Bitmaps\dlgbmp.bmp"/>
     <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)Resources\License\license.rtf"/>
@@ -121,8 +99,6 @@
 
     <InstallExecuteSequence>
       <Custom Action="ShellServiceInstall" Before='InstallFinalize'>NOT Installed</Custom>
-      <Custom Action="ShellServiceStart" After="ShellServiceInstall">NOT Installed</Custom>
-      <Custom Action="ShellServiceStop" Before='ShellServiceUninstall'>(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
       <Custom Action="ShellServiceUninstall" Before="RemoveFiles">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
     </InstallExecuteSequence>
   </Product>

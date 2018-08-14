@@ -37,17 +37,37 @@ namespace SiteServerCustomAction
         {
             Record record = new Record() { FormatString = message };
             session.Message(
-                InstallMessage.Error | (InstallMessage)(System.Windows.Forms.MessageBoxIcon.Error) |
-                (InstallMessage)System.Windows.Forms.MessageBoxButtons.OK,
+                InstallMessage.Error,
                 record);
         }
 
         [CustomAction]
         public static ActionResult Install(Session session)
         {
-            var packager = new Packager("c:\test", "test");
-            return ActionResult.Success;
+            var installer = new Acr.SiteServer.InstallUtil.Installer();
+            var installed = installer.Install(
+            session["WIXUI_INSTALLDIR"],
+            $"{session["WIXUI_INSTALLDIR"]}\\Acr.SiteServer.Shell.+ {session["VERSION"]}.zip",
+            session["VERSION"],
+            "Acr.SiteServer.Shell.exe",
+            "Shell",
+            $"http://localhost:{ session["VERSION"]}/",
+            "CN=acr.org",
+            new Acr.SiteServer.InstallUtil.Logger(session));
+            return (installed ? ActionResult.Success : ActionResult.Failure);
         }
 
+        [CustomAction]
+        public static ActionResult Uninstall(Session session)
+        {
+            var installer = new Acr.SiteServer.InstallUtil.Installer();
+            var installed = installer.Uninstall(
+            session["WIXUI_INSTALLDIR"],
+            session["VERSION"],
+            "Acr.SiteServer.Shell.exe",
+            $"http://localhost:{ session["VERSION"]}/",
+            new Acr.SiteServer.InstallUtil.Logger(session));
+            return (installed ? ActionResult.Success : ActionResult.Failure);
+        }
     }
 }

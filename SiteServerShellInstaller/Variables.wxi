@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
-  <?define ShellRootDir="Shell" ?>
-  <?define Version="4.11.0.61" ?>
-  <?define ServiceSourceDir="AcrSiteServerShell\distr" ?>
-  <?define WebSourceDir="AcrSiteServerShell\webui" ?>
+  <?define PackageSource = ".\Acr.SiteServer.Shell.zip" ?>
+  <?define Version="4.11.0.69" ?>
+  <?define InstallUtilSource=".\InstallUtil" ?>
 </Include>
