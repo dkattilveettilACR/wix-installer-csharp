@@ -9,6 +9,10 @@ namespace Acr.SiteServer.InstallUtil
 
         public Logger(Session session)
         {
+            if (session == null)
+            {
+                throw new ArgumentNullException(nameof(session));
+            }
             _session = session;
         }
 
